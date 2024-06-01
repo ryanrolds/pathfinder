@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1cb2e1085d3134dd283f3087462060c8",
+    "content-hash": "83916255aa09a74af55215a3cbae42cd",
     "packages": [
         {
             "name": "bcosca/fatfree-core",
-            "version": "3.7.3",
+            "version": "dev-redis_tls_and_username",
             "source": {
                 "type": "git",
-                "url": "https://github.com/f3-factory/fatfree-core.git",
-                "reference": "3e23ae05384b2f830e99c5888b94118819ed948b"
+                "url": "https://github.com/ryanrolds/fatfree-core.git",
+                "reference": "de6b41e7a42653a030c30465181ca820bd462480"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/f3-factory/fatfree-core/zipball/3e23ae05384b2f830e99c5888b94118819ed948b",
-                "reference": "3e23ae05384b2f830e99c5888b94118819ed948b",
+                "url": "https://api.github.com/repos/ryanrolds/fatfree-core/zipball/de6b41e7a42653a030c30465181ca820bd462480",
+                "reference": "de6b41e7a42653a030c30465181ca820bd462480",
                 "shasum": ""
             },
             "require": {
@@ -29,17 +29,15 @@
                     "."
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0"
             ],
             "description": "A powerful yet easy-to-use PHP micro-framework designed to help you build dynamic and robust Web applications - fast!",
             "homepage": "http://fatfreeframework.com/",
             "support": {
-                "issues": "https://github.com/f3-factory/fatfree-core/issues",
-                "source": "https://github.com/f3-factory/fatfree-core/tree/3.7.3"
+                "source": "https://github.com/ryanrolds/fatfree-core/tree/redis_tls_and_username"
             },
-            "time": "2020-12-13T12:49:39+00:00"
+            "time": "2024-06-01T21:15:39+00:00"
         },
         {
             "name": "cache/adapter-common",
@@ -1398,20 +1396,17 @@
         },
         {
             "name": "ikkez/f3-schema-builder",
-            "version": "v2.2.6",
+            "version": "v2.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ikkez/f3-schema-builder.git",
-                "reference": "1fc4cf37e4683037d35a8536232bcacbf7f4dd0b"
+                "reference": "42d8f3f0a117dce29ab3fe30ef46fafb419224e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ikkez/f3-schema-builder/zipball/1fc4cf37e4683037d35a8536232bcacbf7f4dd0b",
-                "reference": "1fc4cf37e4683037d35a8536232bcacbf7f4dd0b",
+                "url": "https://api.github.com/repos/ikkez/f3-schema-builder/zipball/42d8f3f0a117dce29ab3fe30ef46fafb419224e3",
+                "reference": "42d8f3f0a117dce29ab3fe30ef46fafb419224e3",
                 "shasum": ""
-            },
-            "require": {
-                "bcosca/fatfree-core": "^3.6"
             },
             "type": "library",
             "autoload": {
@@ -1432,9 +1427,9 @@
             ],
             "support": {
                 "issues": "https://github.com/ikkez/f3-schema-builder/issues",
-                "source": "https://github.com/ikkez/f3-schema-builder/tree/v2.2.6"
+                "source": "https://github.com/ikkez/f3-schema-builder/tree/master"
             },
-            "time": "2023-02-13T19:12:50+00:00"
+            "time": "2018-05-15T13:03:21+00:00"
         },
         {
             "name": "ikkez/f3-sheet",
@@ -3156,20 +3151,20 @@
         },
         {
             "name": "xfra35/f3-cron",
-            "version": "v1.2.1",
+            "version": "dev-package_upgrades",
             "source": {
                 "type": "git",
-                "url": "https://github.com/xfra35/f3-cron.git",
-                "reference": "eba0a5574a8c35623307dd27135a67d76e4da12e"
+                "url": "https://github.com/ryanrolds/f3-cron.git",
+                "reference": "75885f8aa485da9236e05ca8cc49a6fa39b9235d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/xfra35/f3-cron/zipball/eba0a5574a8c35623307dd27135a67d76e4da12e",
-                "reference": "eba0a5574a8c35623307dd27135a67d76e4da12e",
+                "url": "https://api.github.com/repos/ryanrolds/f3-cron/zipball/75885f8aa485da9236e05ca8cc49a6fa39b9235d",
+                "reference": "75885f8aa485da9236e05ca8cc49a6fa39b9235d",
                 "shasum": ""
             },
             "require": {
-                "bcosca/fatfree-core": "~3.5"
+                "bcosca/fatfree-core": "dev-redis_tls_and_username"
             },
             "type": "library",
             "autoload": {
@@ -3177,7 +3172,6 @@
                     "lib/"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-3.0-only"
             ],
@@ -3190,17 +3184,18 @@
                 "scheduling"
             ],
             "support": {
-                "issues": "https://github.com/xfra35/f3-cron/issues",
-                "source": "https://github.com/xfra35/f3-cron/tree/v1.2.1"
+                "source": "https://github.com/ryanrolds/f3-cron/tree/package_upgrades"
             },
-            "time": "2018-06-19T08:29:49+00:00"
+            "time": "2024-06-01T22:30:19+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "ikkez/f3-cortex": 20
+        "bcosca/fatfree-core": 20,
+        "ikkez/f3-cortex": 20,
+        "xfra35/f3-cron": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
@@ -3215,5 +3210,5 @@
         "ext-gd": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.1.0"
 }
