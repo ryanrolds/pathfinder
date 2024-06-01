@@ -2,7 +2,7 @@
 
 #### Mapping tool for [*EVE ONLINE*](https://www.eveonline.com)
 
-This Pathfinder Fork is an attempt to make a community supported fork in the absence of [Exodus4d](https://github.com/exodus4d) that will include bug fixes and be upgraded for any changes to the Eve Online universe.
+This Pathfinder Fork is an attempt to make a community-supported fork in the absence of [Exodus4d](https://github.com/exodus4d) that will include bug fixes and be upgraded for any changes to the Eve Online universe.
 
 **For installation please see our [Docker-compose solution](https://github.com/goryn-clade/pathfinder-containers) that includes a detailed guide on how to get up and running.**
 
