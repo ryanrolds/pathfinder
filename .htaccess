@@ -5,13 +5,13 @@
 RewriteEngine On
 
 # Rewrite NONE www. to force www. =================================================================
-RewriteCond %{HTTP_HOST} !^www\.
+#RewriteCond %{HTTP_HOST} !^www\.
 # skip "localhost" (dev environment)...
-RewriteCond %{HTTP_HOST} !=localhost
+#RewriteCond %{HTTP_HOST} !=localhost
 # skip IP calls (dev environment) e.g. 127.0.0.1
-RewriteCond %{HTTP_HOST} !^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$
+#RewriteCond %{HTTP_HOST} !^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$
 # rewrite everything else to "http://" and "www."
-RewriteRule .* http://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+#RewriteRule .* http://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # Some servers require you to specify the `RewriteBase` directive
 # In such cases, it should be the path (relative to the document root)
