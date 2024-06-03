@@ -28,7 +28,6 @@ class Setup extends Controller {
      * @var array
      */
     protected $environmentVars = [
-        'ENVIRONMENT_CONFIG' => [],
         'BASE' => ['missingOk' => true],
         'URL' => [],
         'DEBUG' => [],
@@ -190,6 +189,12 @@ class Setup extends Controller {
      * @throws \Exception
      */
     public function init(\Base $f3){
+        $allowSetup = $f3->get('PATHFINDER.ALLOW_SETUP');
+        if (!$allowSetup) {
+            $f3->reroute(['login']);
+            return;
+        } 
+
         $params = $f3->get('GET');
 
         // enables automatic column fix
@@ -473,7 +478,6 @@ class Setup extends Controller {
      * @return array
      */
     protected function checkRequirements(\Base $f3) : array {
-
         $serverData = self::getServerData(0);
 
         $checkRequirements = [
