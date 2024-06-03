@@ -227,44 +227,28 @@ class Config extends \Prefab {
      * @return array|mixed|null
      */
     protected function setAllEnvironmentData(\Base $f3){
-        $environmentData = null;
+        // get environment data from *.ini file config
+        $customConfDir = $f3->get('CONF');
 
-        if( !empty($this->serverConfigData['ENV']) ){
-            // get environment config from $_SERVER data
-            $environmentData = (array)$this->serverConfigData['ENV'];
-
-            // some environment variables should be parsed as array
-            array_walk($environmentData, function(&$item, $key){
-                $item = (in_array($key, self::ARRAY_KEYS)) ? explode(',', $item) : $item;
-            });
-
-            $environmentData['ENVIRONMENT_CONFIG'] = 'PHP: environment variables';
-        }else{
-            // get environment data from *.ini file config
-            $customConfDir = $f3->get('CONF');
-
-            // check "custom" ini dir, of not found check default ini dir
-            foreach($customConfDir as $type => $path){
-                $envConfFile = $path . 'environment.ini';
-                $f3->config($envConfFile, true);
-
-                if(
-                    $f3->exists(self::HIVE_KEY_ENVIRONMENT) &&
-                    ($environment = $f3->get(self::HIVE_KEY_ENVIRONMENT . '.SERVER')) &&
-                    ($environmentData = $f3->get(self::HIVE_KEY_ENVIRONMENT . '.' . $environment))
-                ){
-                    $environmentData['ENVIRONMENT_CONFIG'] = 'Config: ' . $envConfFile;
-                    break;
-                }
-            }
+        // check "custom" ini dir, of not found check default ini dir
+        foreach($customConfDir as $type => $path){
+            $envConfFile = $path . 'environment.ini';
+            $f3->config($envConfFile, true);
         }
 
-        if( !is_null($environmentData) ){
-            ksort($environmentData);
-            $f3->set(self::HIVE_KEY_ENVIRONMENT, $environmentData);
+        // get environment config from $_SERVER data
+        $envVars = (array)$this->serverConfigData['ENVIRONMENT'];
+
+        // some environment variables should be parsed as array
+        array_walk($envVars, function(&$item, $key){
+            $item = (in_array($key, self::ARRAY_KEYS)) ? explode(',', $item) : $item;
+        });
+
+        foreach($envVars as $key => $value){
+            $f3->set(self::HIVE_KEY_ENVIRONMENT . '.' . $key, $value);
         }
 
-        return $environmentData;
+        return $f3->get(self::HIVE_KEY_ENVIRONMENT);
     }
 
     /**
@@ -279,6 +263,7 @@ class Config extends \Prefab {
      */
     protected function setServerData(){
         $data = [];
+
         foreach($_SERVER as $key => $value){
             if(strpos($key, self::PREFIX_KEY . self::ARRAY_DELIMITER) === 0){
                 $path = explode( self::ARRAY_DELIMITER, $key);
