@@ -328,8 +328,7 @@ class Config extends \Prefab {
             'SOCKET'    => self::getEnvironmentData('DB_' . $alias . '_SOCKET'),
             'NAME'      => self::getEnvironmentData('DB_' . $alias . '_NAME'),
             'USER'      => self::getEnvironmentData('DB_' . $alias . '_USER'),
-            'PASS'      => self::getEnvironmentData('DB_' . $alias . '_PASS')//,
-            // 'SSL'       => self::getEnvironmentData('DB_' . $alias . '_SSL')
+            'PASS'      => self::getEnvironmentData('DB_' . $alias . '_PASS')
         ];
 
         $pdoReg = '/^(?<SCHEME>[[:alpha:]]+):((host=(?<HOST>[a-zA-Z0-9-_\.]*))|(unix_socket=(?<SOCKET>[a-zA-Z0-9\/]*\.sock)))((;dbname=(?<NAME>\w*))|(;port=(?<PORT>\d*))){0,2}/';
@@ -360,10 +359,6 @@ class Config extends \Prefab {
         if(self::getPathfinderData('experiments.persistent_db_connections')){
             $options[\PDO::ATTR_PERSISTENT] = true;
         }
-
-        // if (!empty($config['SSL'])) {
-        //     $options[\PDO::MYSQL_ATTR_SSL_CA] = $config['SSL'];
-        // }
 
         $config['OPTIONS'] = $options;
 
