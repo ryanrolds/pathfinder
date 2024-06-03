@@ -27,7 +27,7 @@ class Config extends \Prefab {
     /**
      * delimiter for custom Pathfinder env vars
      */
-    const ARRAY_DELIMITER                           = '-';
+    const PATH_DELIMITER                           = '__';
 
     /**
      * Hive key for all Pathfinder config vars (*.ini files)
@@ -265,8 +265,8 @@ class Config extends \Prefab {
         $data = [];
 
         foreach($_SERVER as $key => $value){
-            if(strpos($key, self::PREFIX_KEY . self::ARRAY_DELIMITER) === 0){
-                $path = explode( self::ARRAY_DELIMITER, $key);
+            if(strpos($key, self::PREFIX_KEY . self::PATH_DELIMITER) === 0){
+                $path = explode( self::PATH_DELIMITER, $key);
                 // remove prefix
                 array_shift($path);
 
