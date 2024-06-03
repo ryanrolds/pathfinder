@@ -30,10 +30,10 @@
     "ext-mbstring": "*",
     "ext-ctype": "*",
     "ext-gd": "*",
-    "bcosca/fatfree-core": "3.7.*",
+    "bcosca/fatfree-core": "dev-redis_tls_and_username",
     "ikkez/f3-cortex": "dev-master#af035616ae8d708776117e05603dac43835f3d9a",
     "ikkez/f3-sheet": "0.4.*",
-    "xfra35/f3-cron": "1.2.*",
+    "xfra35/f3-cron": "dev-package_upgrades",
     "monolog/monolog": "2.3.5",
     "swiftmailer/swiftmailer": "6.2.*",
     "league/html-to-markdown": "5.0.*",
@@ -48,6 +48,16 @@
     "firebase/php-jwt": "6.*",
     "goryn-clade/pathfinder_esi": "2.1.4"
   },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/ryanrolds/fatfree-core"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/ryanrolds/f3-cron"
+    }
+  ],
   "suggest": {
     "ext-redis": "Redis can be used as cache backend."
   }
