@@ -151,6 +151,7 @@ class Config extends \Prefab {
         $this->setServerData();
         // set environment data
         $this->setAllEnvironmentData($f3);
+        $this->setAllPathfinderData($f3);
         // set hive configuration variables
         // -> overwrites default configuration
         $this->setHiveVariables($f3);
@@ -249,6 +250,27 @@ class Config extends \Prefab {
         }
 
         return $f3->get(self::HIVE_KEY_ENVIRONMENT);
+    }
+
+    /**
+     * set all environment configuration data
+     * @param \Base $f3
+     * @return array|mixed|null
+     */
+    protected function setAllPathfinderData(\Base $f3){
+        // get pathfinder config env vars from $_SERVER data
+        $pathfinderVars = (array)$this->serverConfigData['PATHFINDER'];
+
+        // some environment variables should be parsed as array
+        array_walk($pathfinderVars, function(&$item, $key){
+            $item = (in_array($key, self::ARRAY_KEYS)) ? explode(',', $item) : $item;
+        });
+
+        foreach($pathfinderVars as $key => $value){
+            $f3->set(self::HIVE_KEY_PATHFINDER . '.' . $key, $value);
+        }
+
+        return $f3->get(self::HIVE_KEY_PATHFINDER);
     }
 
     /**
@@ -534,6 +556,7 @@ class Config extends \Prefab {
         if( !\Base::instance()->exists($hiveKey, $data) ){
             $data = null;
         }
+
         return $data;
     }
 
